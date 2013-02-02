@@ -19,6 +19,7 @@ def readIn(inFile):
         # Catcode Catname Catorder Industry Sector Sector_Long
         tmp = fin.readlines()
         sectData = tmp[1:]
+        return sectData
 
 def sectorDict(sectData):
     sectDict = {}
