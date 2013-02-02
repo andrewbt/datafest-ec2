@@ -9,8 +9,27 @@ from dict2xml import dict2xml
 import sys, getopt
 import requests
 import pprint
+import itertools
 
 api = InfluenceExplorer('8f0d91c66d4e428da018c0eb0fa571fc')
+
+def readIn(inFile):
+    with open(inFile, 'r') as fin:
+        # format is:
+        # Catcode Catname Catorder Industry Sector Sector_Long
+        tmp = fin.readlines()
+        sectData = tmp[1:]
+
+def sectorDict(sectData):
+    sectDict = {}
+    for i in sectData:
+        sector = i.split()[4]
+        code = i.split()[0]
+        if sector in sectDict:
+            sectDict[sector].append(code)
+        else:
+            sectDict[sector] = [code]
+    return sectDict
 
 def main(argv):
     i = ''
@@ -24,7 +43,11 @@ def main(argv):
         if opt in ("-i", "-input"):
             i = arg
     data = api.entities.search(i)
-#    tmp = dict2xml(data)
+
+    sectData = readIn("CRP_Categories.txt")
+    sectDict = sectorDict(sectData)
+    print sectDict
+
     pprint.pprint(data)
 
 if __name__ == "__main__":
