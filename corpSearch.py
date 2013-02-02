@@ -37,7 +37,7 @@ def sectorDict(sectData):
 
 # writes output from API in format needed for Javascript/D3
 # I AM SO UNAMUSED
-def writeJSON(APIout):
+def writeJSON(APIout, outFile):
     jsonList = []
     for i in APIout:
         jsonList.append(
@@ -95,25 +95,31 @@ def writeJSON(APIout):
                             }
                     }}})
     jsonData = json.dumps(jsonList)
+#    f = open(outFile)
+#    f.write(jsonData)
+
     return jsonData
 
 # main argument
 def main(argv):
     i = ''
-    out = ''
+    outFile = ''
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hi:", ["input="])
+        opts, args = getopt.getopt(sys.argv[1:], "hi:o:", ["input=", "output="])
     except getopt.error, msg:
-        print "corpSearch.py -i <input>"
+        print "corpSearch.py -i <input> -o <output>"
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-i", "-input"):
             i = arg
-    data = api.contributions(contributor_ft=i)
+        elif opt in ("-o", "-output"):
+            outFile = arg
 
+    data = api.contributions(cycle='2012', contributor_ft=i)
     sectData = readIn("CRP_Categories.txt")
     sectDict = sectorDict(sectData)
-    jsonData = writeJSON(data)
+    jsonData = writeJSON(data, outFile)
+    print jsonData
 
 if __name__ == "__main__":
     main(sys.argv[1:])
