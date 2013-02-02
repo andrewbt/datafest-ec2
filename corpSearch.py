@@ -25,7 +25,7 @@ def main(argv):
             i = arg
     data = api.entities.search(i)
 #    tmp = dict2xml(data)
-    pprint.pprint(tmp)
+    pprint.pprint(data)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
