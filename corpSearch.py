@@ -1,14 +1,16 @@
 # August Guang, February 2013
 # corpSearch.py
 # Takes in an input term (corporation name) and scrapes the InfluenceExplorer
-# API to pull out all relevant information (does not format)
 
 # to run: python corpSearch.py -i <input>
 
+from influenceexplorer import InfluenceExplorer
+from dict2xml import dict2xml
 import sys, getopt
 import requests
 import pprint
-import urllib2
+
+api = InfluenceExplorer('8f0d91c66d4e428da018c0eb0fa571fc')
 
 def main(argv):
     i = ''
@@ -21,20 +23,9 @@ def main(argv):
     for opt, arg in opts:
         if opt in ("-i", "-input"):
             i = arg
-#        elif opt in ("-o", "-output"):
-#            out = arg
-
-    query_params = { 'apikey' : '8f0d91c66d4e428da018c0eb0fa571fc',
-                     'per_page': 3,
-                 'phrase' : i
-                     }
-
-    endpoint = "http://transparencydata.com/api/1.0/contributions.json"
-
-    response = requests.get( endpoint, params=query_params)
-    data = response.json()    
-
-    pprint.pprint(data)
+    data = api.entities.search(i)
+#    tmp = dict2xml(data)
+    pprint.pprint(tmp)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
