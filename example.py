@@ -37,7 +37,7 @@ def sectorDict(sectData):
 
 # writes output from API in format needed for Javascript/D3
 # I AM SO UNAMUSED
-def writeJSON(APIout, outFile):
+def writeJSON(APIout):
     jsonList = []
     for i in APIout:
         jsonList.append(
@@ -94,13 +94,12 @@ def writeJSON(APIout, outFile):
                             }
                             }
                     }}})
-    f = open(outFile, 'w')
     jsonData = json.dumps(jsonList)
-    print >> f, jsonData
+    print jsonData
 #    f = open(outFile)
 #    f.write(jsonData)
 
     return jsonData
 
 data = api.contributions(cycle='2012', contributor_ft="Corrections Corp of America")
-jsonData = writeJSON(data, "out.json")
+jsonData = writeJSON(data)
