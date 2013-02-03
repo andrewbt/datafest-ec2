@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mapping Congress</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        
+        <script type="text/javascript" language="javascript">
+
+			function redirect()
+			{
+				// you can also pass the complete URL of location
+				// e.g.: http://www.google.com/ or
+				// http://programming.top54u.com/Default.aspx
+				
+				location.replace("page.htm");
+			}
+		
+			</script>
+
+        
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+<div id="container">
+<header> 
+	<h1><a href="index.html">Heatmapping Congress</a></h1>
+	<p id="intro">
+	An interactive web application that tracks corporation campaign contributions by district in 2012.
+<br>
+We developed a proof of concept that is the <a href="cca.html">Detention Facilities</a>subgroup. We are making a chloropleth map of campaign contributions by Corrections Corp of America in 2012 by state and congressional district as an example of what the Heatmapping Congress tool can do.
+</p>
+</header>
+
+<div id="content">
+	<div id="POC">
+		<h2>Proof of Concepts:</h2>
+		<div id="cca">
+			<img src="./img/CCA.png">
+			<h3><a href="cca.html">Corrections Corp of America </a></h3>
+		</div>
+		<div id="coke">
+			<img src="./img/CCA.png">
+			<h3><a href="">Coke v Pepsi</a></h3>
+		</div>
+	</div>
+	<div id="viz"> 
+		<form id="searchbox" action="">
+			<input id="search" type="text" placeholder="Enter Corporation or PAC name">
+			<input id="submit" type="submit" value="Search">
+		</form>
+	
+
+
+    <p>
+        <b>Click this button to replace the current page location with new one:</b> 
+        <input type="text" value="search" onclick="redirect();" />
+    </p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	<div id="explanation" class="explanation">
+	<div class="explanation" id="col1">
+			<h2>The Data</h2>
+			<p>
+			Fusce consectetur mi vitae diam sollicitudin sodales. In hac habitasse platea dictumst. Vivamus ligula justo, adipiscing sed luctus at, malesuada ac dolor. Sed velit libero, eleifend facilisis iaculis at, porttitor vitae augue. Vivamus volutpat sem ac purus porttitor mattis. Quisque viverra sem a erat vestibulum aliquam. In a ante at orci iaculis vehicula. Maecenas nec metus vel orci scelerisque rutrum vel non metus. Duis posuere aliquam diam ac sodales. Integer nec arcu id leo laoreet commodo. Maecenas vel elit massa, ac sodales diam. Duis ante purus, rutrum sed volutpat eget, ornare a est.
+			</p>
+</div>
+	<div class="explanation" id="col2">
+			<h2> The Git </h2>
+			<p>
+			Fusce consectetur mi vitae diam sollicitudin sodales. In hac habitasse platea dictumst. Vivamus ligula justo, adipiscing sed luctus at, malesuada ac dolor. Sed velit libero, eleifend facilisis iaculis at, porttitor vitae augue. Vivamus volutpat sem ac purus porttitor mattis. Quisque viverra sem a erat vestibulum aliquam. In a ante at orci iaculis vehicula. Maecenas nec metus vel orci scelerisque rutrum vel non metus. Duis posuere aliquam diam ac sodales. Integer nec arcu id leo laoreet commodo. Maecenas vel elit massa, ac sodales diam. Duis ante purus, rutrum sed volutpat eget, ornare a est.
+			</p>
+</div>
+	<div class="explanation" id="col3">
+			<h2> Datafest </h2>
+			<p>
+			Fusce consectetur mi vitae diam sollicitudin sodales. In hac habitasse platea dictumst. Vivamus ligula justo, adipiscing sed luctus at, malesuada ac dolor. Sed velit libero, eleifend facilisis iaculis at, porttitor vitae augue. Vivamus volutpat sem ac purus porttitor mattis. Quisque viverra sem a erat vestibulum aliquam. In a ante at orci iaculis vehicula. Maecenas nec metus vel orci scelerisque rutrum vel non metus. Duis posuere aliquam diam ac sodales. Integer nec arcu id leo laoreet commodo. Maecenas vel elit massa, ac sodales diam. Duis ante purus, rutrum sed volutpat eget, ornare a est.
+			</p>
+</div>
+</div> <!-- explanation -->
+</div> <!--content-->
+</div> <!-- container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

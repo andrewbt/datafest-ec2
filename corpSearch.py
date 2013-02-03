@@ -2,7 +2,7 @@
 # corpSearch.py
 # Takes in an input term (corporation name) and scrapes the InfluenceExplorer
 
-# to run: python corpSearch.py -i <input>
+# to run: python corpSearch.py -i <input> -o <output>
 
 from transparencydata import TransparencyData
 import sys, getopt
@@ -117,7 +117,15 @@ def main(argv):
         elif opt in ("-o", "-output"):
             outFile = arg
 
-    data = api.contributions(cycle='2012', contributor_ft=i)
+    data = []
+    # if user has typed in a month range, such as between 06 and 11
+    if i.find("between"):
+        a = i.split() # returns [company name, between, ##, and, ##]
+        name = a[0]
+        dates = "><|2012-" + a[2] + "-01|2012-" + a[4] + "-31"
+        data = api.contributions(cycle='2012', contributor_ft=name, date=dates) 
+    else:
+        data = api.contributions(cycle='2012', contributor_ft=i)
     sectData = readIn("CRP_Categories.txt")
     sectDict = sectorDict(sectData)
     jsonData = writeJSON(data, outFile)
