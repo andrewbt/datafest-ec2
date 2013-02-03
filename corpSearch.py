@@ -94,7 +94,9 @@ def writeJSON(APIout, outFile):
                             }
                             }
                     }}})
+    f = open(outFile, 'w')
     jsonData = json.dumps(jsonList)
+    print >> f, jsonData
 #    f = open(outFile)
 #    f.write(jsonData)
 
@@ -119,7 +121,6 @@ def main(argv):
     sectData = readIn("CRP_Categories.txt")
     sectDict = sectorDict(sectData)
     jsonData = writeJSON(data, outFile)
-    print jsonData
 
 if __name__ == "__main__":
     main(sys.argv[1:])
